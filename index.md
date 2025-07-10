@@ -1,8 +1,1 @@
-# Test
-
-```ts
-
-const func = () => {
-    return true;
-}
-```
+[`useEffect` considered harmful?](./references.md)
