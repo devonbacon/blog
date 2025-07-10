@@ -2,13 +2,13 @@
 
 Devon Coleman - 7/10/25 - [Back to home](index.md)
 
-I hear this a lot at my day job. In a codebase as large and stratified as the one we work in, badly-written effects have caused no end of bugs.
+I hear this a lot at my day job. In a codebase as large and stratified as the one I work in, badly-written effects have caused no end of bugs.
 
 From infinite rerender loops to subtle synchronization bugs, it really does sometimes feel like a bunch of footguns in a trenchcoat.
 
 However, I would argue that `useEffect` is just a convenient scapegoat for the real issue:
 
-### JS Developers don't think about object references.
+FE developers don't think about object references.
 
 ## References
 
@@ -48,7 +48,7 @@ And this is how `useMemo`/`useCallback`/`useEffect` determine whether entries in
 
 As we've established, objects are compared by reference. So if you want React to notice changes to an object, you need to generate a new reference.
 
-If we flip this around, we uncover the root problem: React interprets a new object reference as "this data has changed", *regardless of whether it actually did*.
+If we flip this around, we uncover the problem: React interprets a new object reference as "this data has changed", *regardless of whether it actually did*.
 
 This is why docs, literature, and the React community put such an emphasis on immutable update patterns.
 
