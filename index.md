@@ -1,5 +1,6 @@
-LinkedIn: https://www.linkedin.com/in/devon-coleman/
-
 Welcome! Thanks for the interest in my ramblings.
 
-[`useEffect` considered harmful?](./references.md)
+[LinkedIn](https://www.linkedin.com/in/devon-coleman/)
+
+## [`useEffect` considered harmful?](./references.md)
+A brief writeup on this common refrain and my thoughts on the true root cause.

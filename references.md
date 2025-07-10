@@ -1,5 +1,7 @@
 # `useEffect` considered harmful?
 
+Devon Coleman - 7/10/25 - [Back to home](index.md)
+
 I hear this a lot at my day job. In a codebase as large and stratified as the one we work in, badly-written effects have caused no end of bugs.
 
 From infinite rerender loops to subtle synchronization bugs, it really does sometimes feel like a bunch of footguns in a trenchcoat.
@@ -109,3 +111,5 @@ The library was clearly designed for consumers to destructure the object in the 
 ## **Fourth**, (probably) use [react-compiler](https://react.dev/learn/react-compiler) once it's stable.
 
 I haven't used it so I can't comment on how much it helps, but it appears to be aimed at solving this problem and should provide some level of referential integrity out of the box.
+
+[Back to home](index.md)
