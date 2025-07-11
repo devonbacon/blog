@@ -1,6 +1,6 @@
 # `useEffect` considered harmful?
 
-Devon Coleman - 7/10/25 - [Back to home](index.md)
+Devon Coleman | **Published** 7/10/25 | **Updated** 7/11/25
 
 I hear this a lot at my day job. In a codebase as large and stratified as the one I work in, badly-written effects have caused no end of bugs.
 
@@ -52,11 +52,11 @@ If we flip this around, we uncover the problem: React interprets a new object re
 
 This is why docs, literature, and the React community put such an emphasis on immutable update patterns.
 
-## Changes, changes everywhere, but not a bit that flipped
+## Changes, changes everywhere, but not a bit was flipped
 
 On the whole, folks either don't know, don't care, or simply don't understand that keeping object references stable until change occurs (what I refer to as "referential integrity") is critical to performance when scaling a React app beyond a simple SPA.
 
-This means tons of unnecessary rerenders and effects, burning CPU for what are generally very CPU-limited SPAs. This causes noticeable performance issues, not to mention the potential for behavioral bugs from effects that aren't otherwise gated (the type of bug that inspired the title of this post).
+This means tons of unnecessary rerenders and effects, burning CPU for what are generally very CPU-limited apps. This causes noticeable performance issues, not to mention the potential for behavioral bugs from effects that aren't otherwise gated (the type of bug that inspired the title of this post).
 
 To be clear, I have a lot of empathy for these engineers. This is a difficult topic to wrap your head around; it didn't fully click for me until I read [Dan Abramov's "A Complete Guide to useEffect"](https://overreacted.io/a-complete-guide-to-useeffect/).
 
@@ -90,7 +90,7 @@ I've seen similar patterns with other open-source/widely-used technologies such 
 
 # So what can we do about it?
 
-## **First**, get comfortable thinking about the lifetime of your data (both the container and the contents).
+### **First**, get comfortable thinking about the lifetime of your data (both the container and the contents).
 
 Consider where an object will go once you create it, and what the effects of it changing will be.
 
@@ -98,17 +98,17 @@ Is it being passed as a prop? Is the component it's being passed to cheap to ren
 
 Over time, you'll develop a sense of how a piece of data behaves and when you need to be very careful vs when it's okay to let it slide.
 
-## **Second**, when accessing data you don't control, take note of how well its reference is managed.
+### **Second**, when accessing data you don't control, take note of how well its reference is managed.
 
 Do you need to memoize it based on other values in your component? Can you extract a subset of the object that *is* referentially stable?
 
 For example, I once found that while the return value from a library's hook was an inline object (so, not referentially stable), the individual functions within the return value were memoized and could be passed as props directly.
 
-## **Third**, design your apis with referential integrity in mind.
+### **Third**, design your apis with referential integrity in mind.
 
 The library was clearly designed for consumers to destructure the object in the caller, but wrapping the return value in a `useMemo` would have been a cheap way to support the approach we were using as well.
 
-## **Fourth**, (probably) use [react-compiler](https://react.dev/learn/react-compiler) once it's stable.
+### **Fourth**, (probably) use [react-compiler](https://react.dev/learn/react-compiler) once it's stable.
 
 I haven't used it so I can't comment on how much it helps, but it appears to be aimed at solving this problem and should provide some level of referential integrity out of the box.
 
