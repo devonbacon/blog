@@ -1,6 +1,7 @@
 remote_theme: pages-themes/minimal@v0.2.0
 plugins:
 - jekyll-remote-themes
+- jekyll-seo-tag
 
 title: "Devon Coleman's Personal Blog"
 description: "Welcome!"
