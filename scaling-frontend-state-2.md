@@ -23,14 +23,16 @@ Regardless of how it is presented, this metadata generally lets us track and rea
 ```mermaid
 
 flowchart TD
-    A(UNINITIALIZED) -->|fetch| B(PENDING)
+    A(UNINITIALIZED) -->|fetch| B(LOADING)
     B -->|succeeds| C(SUCCESS)
     B -->|fails| D(FAILURE)
     D -->|might retry| B
 
 ```
 
-This lifecycle is generally consistent for any piece of synced state, which leads people to think they can easily write an abstraction for it. Sadly it's much more complex than it seems, so most of the things people write are bad. As a sneak peek of the future: This is where a metric ton of accidental complexity sneaks in.
+This lifecycle is generally consistent for any piece of synced state, which leads people to think they can easily write an abstraction for it.
+
+Sadly it's much more complex than it seems, so most of the things people write are bad. As a sneak peek of the future: This is where a metric ton of accidental complexity sneaks in.
 
 ## Client state
 
