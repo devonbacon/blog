@@ -24,9 +24,10 @@ Regardless of how it is presented, this metadata generally lets us track and rea
 
 flowchart TD
     A(UNINITIALIZED) -->|fetch| B(LOADING)
-    B -->|succeeds| C(SUCCESS)
-    B -->|fails| D(FAILURE)
-    D -->|might retry| B
+    B -.->|succeeds| C(SUCCESS)
+    C -->|refresh| B
+    B -.->|fails| D(FAILURE)
+    D -->|retry| B
 
 ```
 
