@@ -2,7 +2,7 @@
 
 Devon Coleman | Published 7/11/25
 
-There are two distinct classes of state typically encountered when buildng a sufficiently-complex FE webapp.
+There are two distinct classes of state typically encountered when building a sufficiently-complex FE webapp.
 
 ## Synced state
 
@@ -14,20 +14,7 @@ The typical characteristics of synced state are:
 
 Synced state nearly always necessitates tracking metadata about the state. We need to track things like "Has it been read?" or "Is the read in-flight?" or "Did the read fail?"
 
-Often you'll see this as a "status" field with values:
-
-- `UNINITIALIZED`: Data has not been read yet
-- `LOADING`: Read has been dispatched but not completed
-- `SUCCESS`: Read completed successfully
-- `FAILURE`: Read failed
-
-alongside the cooresponding data/error objects. This representation is likely more common within libraries or custom redux code.
-
-More commonly, users will be presented a set of flags:
-
-- `data`: If present, populated with the result of the read
-- `loading`: A boolean. True if the read is in flight, false if not
-- `error`: Either `null`/`false` or an error object if the read failed
+Often you'll see this as a "status" field with `UNINITIALIZED`/`LOADING`/`SUCCESS`/`FAILURE` values, or (more commonly) `data`/`error`/`loading` fields (such as provided by Apollo).
 
 ### Synced state's lifecycle
 
@@ -43,21 +30,21 @@ flowchart TD
 
 ```
 
-This lifecycle is generally consistent for any piece of synced state, which leads people to think they can easily write an abstraction for it. Sadly it's much more complex than it seems, so most of the things people write are bad. As a sneak peek of the future: This is where a metric ton of of accidental complexity sneaks in.
+This lifecycle is generally consistent for any piece of synced state, which leads people to think they can easily write an abstraction for it. Sadly it's much more complex than it seems, so most of the things people write are bad. As a sneak peek of the future: This is where a metric ton of accidental complexity sneaks in.
 
-## Local state
+## Client state
 
-In constrast, local state is everthing that doesn't fall into the synced state category.
+In constrast, client state is everything an app tracks that doesn't fall into the synced state category.
 
-The typical characteristics of local state are:
+The typical characteristics of client state are:
 - The data (usually) only exists in memory and is not durable
 - The data is generally read/written with sync flows
 
-As a rule of thumb, local state is used to manage or react to user interactions. Think "what is the value of this text field? or "is this dropdown open?".
+As a rule of thumb, client state is used to manage or react to user interactions. Think "what is the value of this text field? or "is this dropdown open?".
 
-### Local state's location
+### Client state's location
 
-The complexity with local state generally comes from deciding where to keep it. In a React app (the context for all of these discussions, as my day job is a React shop), there are three typical "levels" of state that define how brodly it reaches across the component tree:
+The complexity with client state generally comes from deciding where to keep it. In a React app (the context for all of these discussions, as my day job is a React shop), there are three typical "levels" of state that define how broadly it reaches across the component tree:
 
 - Component state: Stays local to this component + its children
 - Context: Broadly shared across the context providers' subtree
@@ -67,20 +54,22 @@ Generally, I recommend starting at the lowest level possible (component state) a
 
 ## And Never the Twain Shall Meet
 
-Do not mix local and synced state.
+Do not mix client and synced state.
 
-Synced state and local state should not be stored together.
+Synced state and client state should not be stored together.
 
-If you store synced and local state in the same place, you're in for a bad time.
+If you store synced and client state in the same place, you're in for a bad time.
 
-Very, very often, developers want to put their local and synced states in the same container. Whether this is using redux for everything, or using reactive variables in apollo client, they want to "reduce complexity" by standardizing on a single source of truth for app state. But I'm here to say that this is in fact an antipattern and should not be done under any circumstances.
+Client + Synced state = pain.
+
+Very, very often, developers want to put their client and synced states in the same container. Whether this is using redux for everything, or using reactive variables in apollo client, they want to "reduce complexity" by standardizing on a single source of truth for app state. But I'm here to say that this is in fact an antipattern and should not be done under any circumstances.
 
 The reasoning is both simple and deep: The two types of state have very different needs, concerns, challenges, and opportunities. Trying to mix them inevitably results in problems because a pattern built for one type won't cleanly work with another.
 
-It also tightly couples your local state patterns with your synced state patterns. If you need to swap one out (moving your synced state into graphql, for example — extremely common in enterprise apps), you will find it very difficult unless you've correctly separated your concerns.
+It also tightly couples your client state patterns with your synced state patterns. If you need to swap one out (moving your synced state into graphql, for example — extremely common in enterprise apps), you will find it very difficult unless you've correctly separated your concerns.
 
 In the React world, the right way to combine these types of state is at the component layer, which frequently means a properly memoized custom hook.
 
-Next up, we'll dig deeper into synced state — as you might imagine, I have a lot of thoughts about that.
+In my experience, much of the accidental complexity in complex FE apps comes when synced state gets involved, so my next post will start digging deeper into that!
 
 [Back to home](./index.md) | Part 3 (Coming soon!)
