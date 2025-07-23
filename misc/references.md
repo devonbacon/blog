@@ -112,4 +112,4 @@ The library was clearly designed for consumers to destructure the object in the 
 
 I haven't used it so I can't comment on how much it helps, but it appears to be aimed at solving this problem and should provide some level of referential integrity out of the box.
 
-[Back to home](index.md)
+[Back to home](../index.md)

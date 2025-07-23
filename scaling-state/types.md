@@ -75,4 +75,4 @@ In the React world, the right way to combine these types of state is at the comp
 
 In my experience, much of the accidental complexity in FE apps comes when synced state gets involved — so next up, we'll be digging deeper into that.
 
-[Back to home](index.md) | Next (Coming soon!)
+[Back to home](../index.md) | Next (Coming soon!)

@@ -86,4 +86,4 @@ What I *do* have are thoughts on the pieces of FE dev that are often impacted by
 
 Next up, I'll build on this foundation by discussing the different types of FE app state and why they shouldn't mix.
 
-[Back to home](index.md) | [Next — Scaling State: Types of State](./types.md)
+[Back to home](../index.md) | [Next — Scaling State: Types of State](./types.md)
