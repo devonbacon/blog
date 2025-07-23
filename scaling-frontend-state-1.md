@@ -1,4 +1,4 @@
-# Scaling Web App Frontend State: Part 1 (WIP)
+# Scaling Web App Frontend State: Part 1 — Concepts
 
 Devon Coleman | **Published** 7/11/25
 
@@ -86,4 +86,4 @@ What I *do* have are thoughts on the pieces of FE dev that are often impacted by
 
 Next up, I'll build on this foundation by discussing the different types of FE app state and why they shouldn't mix.
 
-[Back to home](index.md) | Part 2 (coming soon!)
+[Back to home](./index.md) | [Part 2](./scaling-frontend-state-2.md)

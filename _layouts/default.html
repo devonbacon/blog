@@ -2,6 +2,23 @@
 <html lang="{{ site.lang | default: "en-US" }}">
   {% seo %}
   <head>
+    <!-- Google analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G3R0LNKXFT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-G3R0LNKXFT');
+    </script>
+
+    <!-- mermaid support -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.0.0/mermaid.min.js"></script>
+    <script>
+      mermaid.initialize({ startOnLoad:true, theme: 'forest', flowchart: { useMaxWidth:false, htmlLabels:true }});
+      window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+    </script>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
