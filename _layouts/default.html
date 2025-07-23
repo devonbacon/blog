@@ -12,12 +12,8 @@
       gtag('config', 'G-G3R0LNKXFT');
     </script>
 
-    <!-- mermaid support -->
+    <!-- mermaid script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.0.0/mermaid.min.js"></script>
-    <script>
-      mermaid.initialize({ startOnLoad:true, theme: 'forest', flowchart: { useMaxWidth:false, htmlLabels:true }});
-      window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
-    </script>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,4 +44,9 @@
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
   </body>
+  <!-- process/execute mermaid diagrams after pageload -->
+  <script>
+    mermaid.initialize({ startOnLoad:true, theme: 'forest', flowchart: { useMaxWidth:false, htmlLabels:true }});
+    window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+  </script>
 </html>
