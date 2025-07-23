@@ -1,6 +1,6 @@
 # `useEffect` considered harmful?
 
-Devon Coleman | **Published** 7/10/25 | **Updated** 7/11/25
+Devon Coleman | **Published** 7/10/25 | **Updated** 7/23/25
 
 I hear this a lot at my day job. In a codebase as large and stratified as the one I work in, badly-written effects have caused no end of bugs.
 

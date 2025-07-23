@@ -1,6 +1,6 @@
-# Scaling Web App Frontend State: Part 1 — Concepts
+# Scaling State: Concepts
 
-Devon Coleman | **Published** 7/11/25
+Devon Coleman | **Published** 7/11/25 | **Updated** 7/23/25
 
 State in frontend web apps (I'll generally shorten this to FE) ranges in complexity from dead simple to wonderfully byzantine, varying as a product of app complexity, team size, and tech debt.
 
@@ -86,4 +86,4 @@ What I *do* have are thoughts on the pieces of FE dev that are often impacted by
 
 Next up, I'll build on this foundation by discussing the different types of FE app state and why they shouldn't mix.
 
-[Back to home](./index.md) | [Part 2](./scaling-frontend-state-2.md)
+[Back to home](index.md) | [Next — Scaling State: Types of State](./types.md)
