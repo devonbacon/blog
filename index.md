@@ -4,6 +4,8 @@ This is a set of quick-and-dirty posts I'm writing as and when inspiration strik
 
 ## Misc.
 
+Arbitrary thoughts that don't fit into any current category.
+
 ### [useEffect considered harmful?](./misc/references.md)
 A brief writeup on this common refrain and my thoughts on the true root cause.
 
