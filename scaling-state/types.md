@@ -6,7 +6,9 @@ There are two distinct classes of state typically encountered when building a su
 
 ## Synced state
 
-Synced state (as the name suggests) is state that needs to be synchronized from/to some other source. This is also often referred to as "server state", but I think that term fails to encapsulate state that is synced to some other location (like IndexedDB) and should use the same patterns.
+Synced state is state that needs to be synchronized from/to some other source — the client (the user's browser) is **not** the source of truth.
+
+This is also often referred to as "server state", but I think that term fails to encapsulate the fact that other non-authoritative sources of state exist in our platform (like IndexedDB).
 
 The typical characteristics of synced state are:
 - Once read, the data exists both in memory and a remote store
@@ -37,13 +39,13 @@ Sadly it's much more complex than it seems, so most of the things people write a
 
 ## Client state
 
-In constrast, client state is everything an app tracks that doesn't fall into the synced state category.
+In constrast, client state is state that the client **is** authoritative over.
 
 The typical characteristics of client state are:
 - The data (usually) only exists in memory and is not durable
-- The data is generally read/written with sync flows
+- The data is generally read/written with sync flows (or it's just a variable in memory)
 
-As a rule of thumb, client state is used to manage or react to user interactions. Think "what is the value of this text field? or "is this dropdown open?".
+If synced state is about keeping a local copy of data in sync with some other copy, client state is about handling user input/interaction.
 
 ### Client state's location
 
