@@ -1,6 +1,6 @@
 # Welcome!
 
-This is a set of quick-and-dirty posts I'm writing as and when inspiration strikes — don't expect perfection, but do hope for some interesting concepts and discussion.
+Please don't expect perfection, but do hope for some interesting concepts and discussion. Primarily writing based on my experience working in complex React SPAs (think google sheets). 
 
 ## Misc.
 
