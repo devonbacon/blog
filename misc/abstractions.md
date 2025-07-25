@@ -102,3 +102,5 @@ The only valid values are those that are presented to you for each step, and ult
 I think this approach rises to the level of a good abstraction: It matches the natural mental model for this system, and it makes invalid states unrepresentatable (making the "right way" also the "only way").
 
 Consider these principles when designing your own abstractions, but more importantly, when using those that others have designed. See where they stack up, see how they fail — and use that knowledge to make the boundaries between your own systems better.
+
+[Back to home](../index.md)
